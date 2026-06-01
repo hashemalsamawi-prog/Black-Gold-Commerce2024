@@ -1,6 +1,6 @@
 import { Navbar } from "./navbar";
 import { useLang } from "@/contexts/LanguageContext";
-import logoImg from "@assets/1768321431258_1780351507797.jpg";
+const logoImg = "/brand/logo-transparent.png";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useLang();

@@ -7,7 +7,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useCartSession } from "@/hooks/use-cart-session";
 import { useGetCart, getGetCartQueryKey } from "@workspace/api-client-react";
 import { Button } from "./ui/button";
-import logoImg from "@assets/1768321431258_1780351507797.jpg";
+const logoImg = "/brand/logo-transparent.png";
 
 export function Navbar() {
   const { lang, setLang, t } = useLang();
@@ -32,14 +32,12 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center mr-8 flex-shrink-0" data-testid="link-logo">
           <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3">
-            <div className="relative h-9 w-9 overflow-hidden rounded-none">
-              <img
-                src={logoImg}
-                alt="Black Gold Logo"
-                className="h-full w-full object-cover object-center"
-                style={{ objectPosition: "50% 10%" }}
-              />
-            </div>
+            <img
+              src={logoImg}
+              alt="Black Gold Logo"
+              className="h-10 w-auto object-contain"
+              style={{ maxWidth: "44px" }}
+            />
             <div className="flex flex-col leading-none">
               <span className="font-bold text-sm tracking-[0.25em] uppercase gold-shimmer">
                 {t("الذهب الأسود", "BLACK GOLD")}

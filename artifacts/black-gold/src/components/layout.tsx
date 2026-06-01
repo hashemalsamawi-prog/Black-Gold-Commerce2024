@@ -1,5 +1,6 @@
 import { Navbar } from "./navbar";
 import { useLang } from "@/contexts/LanguageContext";
+import logoImg from "@assets/1768321431258_1780351507797.jpg";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const { t } = useLang();
@@ -13,13 +14,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <div className="container px-4 md:px-8 mx-auto max-w-screen-2xl">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="md:col-span-2">
-              <span className="text-xl font-bold tracking-[0.2em] uppercase gold-shimmer block mb-4">
-                {t("الذهب الأسود", "BLACK GOLD")}
-              </span>
+              <div className="flex items-center gap-3 mb-4">
+                <img src={logoImg} alt="Black Gold" className="h-12 w-12 object-cover object-top" />
+                <div>
+                  <span className="text-lg font-bold tracking-[0.2em] uppercase gold-shimmer block leading-none">
+                    {t("الذهب الأسود", "BLACK GOLD")}
+                  </span>
+                  <span className="text-[9px] tracking-[0.15em] uppercase text-muted-foreground">
+                    {t("حلول متميزة وتوصيل", "Premium & Delivery Solutions")}
+                  </span>
+                </div>
+              </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
                 {t(
-                  "أجود المنتجات الطبيعية الفاخرة، منذ عام 2010",
-                  "The finest premium natural products, since 2010"
+                  "فحم شيشة فاخر بجودة لا مثيل لها. اشتعال سريع، احتراق طويل، وبدون روائح.",
+                  "Premium hookah charcoal of unrivaled quality. Quick ignition, long-lasting burn, odorless."
                 )}
               </p>
             </div>
@@ -27,6 +36,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <p className="text-xs tracking-widest uppercase text-primary mb-4">{t("تسوق", "Shop")}</p>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="/products" className="hover:text-primary transition-colors">{t("جميع المنتجات", "All Products")}</a></li>
+                <li><a href="/products?category=1" className="hover:text-primary transition-colors">{t("فحم بلدي", "Local Charcoal")}</a></li>
+                <li><a href="/products?category=2" className="hover:text-primary transition-colors">{t("فحم فاخر", "Premium Charcoal")}</a></li>
                 <li><a href="/wholesale" className="hover:text-primary transition-colors">{t("الجملة", "Wholesale")}</a></li>
               </ul>
             </div>

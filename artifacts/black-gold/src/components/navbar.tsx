@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useCartSession } from "@/hooks/use-cart-session";
 import { useGetCart, getGetCartQueryKey } from "@workspace/api-client-react";
 import { Button } from "./ui/button";
+import logoImg from "@assets/1768321431258_1780351507797.jpg";
 
 export function Navbar() {
   const { lang, setLang, t } = useLang();
@@ -30,12 +31,24 @@ export function Navbar() {
       <div className="container flex h-16 max-w-screen-2xl items-center px-4 md:px-8 mx-auto">
         {/* Logo */}
         <Link href="/" className="flex items-center mr-8 flex-shrink-0" data-testid="link-logo">
-          <motion.span
-            whileHover={{ scale: 1.02 }}
-            className="font-bold text-xl tracking-[0.2em] uppercase gold-shimmer"
-          >
-            {t("الذهب الأسود", "BLACK GOLD")}
-          </motion.span>
+          <motion.div whileHover={{ scale: 1.02 }} className="flex items-center gap-3">
+            <div className="relative h-9 w-9 overflow-hidden rounded-none">
+              <img
+                src={logoImg}
+                alt="Black Gold Logo"
+                className="h-full w-full object-cover object-center"
+                style={{ objectPosition: "50% 10%" }}
+              />
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-bold text-sm tracking-[0.25em] uppercase gold-shimmer">
+                {t("الذهب الأسود", "BLACK GOLD")}
+              </span>
+              <span className="text-[8px] tracking-[0.2em] uppercase text-muted-foreground mt-0.5">
+                {t("حلول متميزة", "Premium & Delivery")}
+              </span>
+            </div>
+          </motion.div>
         </Link>
 
         {/* Desktop Nav */}

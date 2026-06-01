@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cinzel:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Scheherazade+New:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -57,69 +57,72 @@
 }
 
 :root {
-  --button-outline: rgba(212,175,55, .20);
-  --badge-outline: rgba(212,175,55, .10);
+  --button-outline: rgba(212,175,55, .28);
+  --badge-outline: rgba(212,175,55, .14);
   --opaque-button-border-intensity: -8;
-  --elevate-1: rgba(212,175,55, .04);
-  --elevate-2: rgba(212,175,55, .09);
+  --elevate-1: rgba(212,175,55, .06);
+  --elevate-2: rgba(212,175,55, .12);
 
-  --background: 0 0% 4%;
-  --foreground: 46 40% 88%;
-  --border: 45 30% 16%;
-  --input: 45 30% 14%;
-  --ring: 45 93% 47%;
+  /* Rich charcoal — slightly warmer than pure black for depth */
+  --background: 20 5% 5%;
+  --foreground: 43 60% 90%;
+  --border: 43 25% 18%;
+  --input: 43 25% 14%;
+  --ring: 43 90% 50%;
 
-  --card: 0 0% 7%;
-  --card-foreground: 46 40% 88%;
-  --card-border: 45 30% 14%;
+  --card: 20 5% 8%;
+  --card-foreground: 43 60% 90%;
+  --card-border: 43 25% 16%;
 
-  --popover: 0 0% 7%;
-  --popover-foreground: 46 40% 88%;
-  --popover-border: 45 30% 14%;
+  --popover: 20 5% 7%;
+  --popover-foreground: 43 60% 90%;
+  --popover-border: 43 25% 16%;
 
-  --sidebar: 0 0% 5%;
-  --sidebar-foreground: 46 40% 88%;
-  --sidebar-border: 45 30% 14%;
-  --sidebar-primary: 45 93% 47%;
+  --sidebar: 20 5% 6%;
+  --sidebar-foreground: 43 60% 90%;
+  --sidebar-border: 43 25% 16%;
+  --sidebar-primary: 43 90% 50%;
   --sidebar-primary-foreground: 0 0% 0%;
-  --sidebar-accent: 45 93% 12%;
-  --sidebar-accent-foreground: 45 93% 47%;
-  --sidebar-ring: 45 93% 47%;
+  --sidebar-accent: 43 90% 11%;
+  --sidebar-accent-foreground: 43 90% 60%;
+  --sidebar-ring: 43 90% 50%;
 
-  --primary: 45 93% 47%;
-  --primary-foreground: 0 0% 4%;
+  /* Polished gold — hue 43° pure gold, vivid saturation */
+  --primary: 43 90% 50%;
+  --primary-foreground: 20 5% 5%;
 
-  --secondary: 0 0% 10%;
-  --secondary-foreground: 46 40% 88%;
+  --secondary: 20 5% 11%;
+  --secondary-foreground: 43 60% 90%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 45 20% 55%;
+  --muted: 20 5% 13%;
+  --muted-foreground: 43 30% 58%;
 
-  --accent: 45 50% 12%;
-  --accent-foreground: 45 93% 60%;
+  --accent: 43 50% 13%;
+  --accent-foreground: 43 90% 62%;
 
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  --chart-1: 45 93% 47%;
-  --chart-2: 45 60% 35%;
-  --chart-3: 45 30% 25%;
-  --chart-4: 30 70% 40%;
-  --chart-5: 15 80% 45%;
+  /* All chart colors stay in gold family — no reds or browns */
+  --chart-1: 43 90% 50%;
+  --chart-2: 43 70% 38%;
+  --chart-3: 43 50% 26%;
+  --chart-4: 43 40% 20%;
+  --chart-5: 43 30% 15%;
 
-  --app-font-sans: 'Cinzel', 'Playfair Display', Georgia, serif;
-  --app-font-serif: 'Playfair Display', Georgia, serif;
+  --app-font-sans: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
+  --app-font-serif: 'Amiri', 'Scheherazade New', Georgia, serif;
   --app-font-mono: 'Courier New', monospace;
   --radius: 0rem;
 
-  --shadow-2xs: 0 1px 2px hsl(45 93% 47% / 0.08);
-  --shadow-xs: 0 2px 4px hsl(45 93% 47% / 0.10);
-  --shadow-sm: 0 2px 8px hsl(45 93% 47% / 0.12);
-  --shadow: 0 4px 16px hsl(45 93% 47% / 0.14);
-  --shadow-md: 0 8px 24px hsl(45 93% 47% / 0.16);
-  --shadow-lg: 0 12px 40px hsl(45 93% 47% / 0.18);
-  --shadow-xl: 0 20px 60px hsl(45 93% 47% / 0.20);
-  --shadow-2xl: 0 32px 80px hsl(45 93% 47% / 0.24);
+  --shadow-2xs: 0 1px 2px hsl(43 90% 50% / 0.08);
+  --shadow-xs:  0 2px 4px hsl(43 90% 50% / 0.12);
+  --shadow-sm:  0 2px 8px hsl(43 90% 50% / 0.16);
+  --shadow:     0 4px 16px hsl(43 90% 50% / 0.18);
+  --shadow-md:  0 8px 24px hsl(43 90% 50% / 0.20);
+  --shadow-lg:  0 12px 40px hsl(43 90% 50% / 0.22);
+  --shadow-xl:  0 20px 60px hsl(43 90% 50% / 0.26);
+  --shadow-2xl: 0 32px 80px hsl(43 90% 50% / 0.30);
   --tracking-normal: 0.05em;
   --spacing: 0.25rem;
 
@@ -140,64 +143,64 @@
 }
 
 .dark {
-  --button-outline: rgba(212,175,55, .20);
-  --badge-outline: rgba(212,175,55, .10);
+  --button-outline: rgba(212,175,55, .28);
+  --badge-outline: rgba(212,175,55, .14);
   --opaque-button-border-intensity: 9;
-  --elevate-1: rgba(212,175,55, .04);
-  --elevate-2: rgba(212,175,55, .09);
+  --elevate-1: rgba(212,175,55, .06);
+  --elevate-2: rgba(212,175,55, .12);
 
-  --background: 0 0% 4%;
-  --foreground: 46 40% 88%;
-  --border: 45 30% 16%;
-  --input: 45 30% 14%;
-  --ring: 45 93% 47%;
+  --background: 20 5% 5%;
+  --foreground: 43 60% 90%;
+  --border: 43 25% 18%;
+  --input: 43 25% 14%;
+  --ring: 43 90% 50%;
 
-  --card: 0 0% 7%;
-  --card-foreground: 46 40% 88%;
-  --card-border: 45 30% 14%;
+  --card: 20 5% 8%;
+  --card-foreground: 43 60% 90%;
+  --card-border: 43 25% 16%;
 
-  --sidebar: 0 0% 5%;
-  --sidebar-foreground: 46 40% 88%;
-  --sidebar-border: 45 30% 14%;
-  --sidebar-primary: 45 93% 47%;
+  --popover: 20 5% 7%;
+  --popover-foreground: 43 60% 90%;
+  --popover-border: 43 25% 16%;
+
+  --sidebar: 20 5% 6%;
+  --sidebar-foreground: 43 60% 90%;
+  --sidebar-border: 43 25% 16%;
+  --sidebar-primary: 43 90% 50%;
   --sidebar-primary-foreground: 0 0% 0%;
-  --sidebar-accent: 45 93% 12%;
-  --sidebar-accent-foreground: 45 93% 47%;
-  --sidebar-ring: 45 93% 47%;
+  --sidebar-accent: 43 90% 11%;
+  --sidebar-accent-foreground: 43 90% 60%;
+  --sidebar-ring: 43 90% 50%;
 
-  --popover: 0 0% 7%;
-  --popover-foreground: 46 40% 88%;
-  --popover-border: 45 30% 14%;
+  --primary: 43 90% 50%;
+  --primary-foreground: 20 5% 5%;
 
-  --primary: 45 93% 47%;
-  --primary-foreground: 0 0% 4%;
+  --secondary: 20 5% 11%;
+  --secondary-foreground: 43 60% 90%;
 
-  --secondary: 0 0% 10%;
-  --secondary-foreground: 46 40% 88%;
+  --muted: 20 5% 13%;
+  --muted-foreground: 43 30% 58%;
 
-  --muted: 0 0% 12%;
-  --muted-foreground: 45 20% 55%;
-
-  --accent: 45 50% 12%;
-  --accent-foreground: 45 93% 60%;
+  --accent: 43 50% 13%;
+  --accent-foreground: 43 90% 62%;
 
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  --chart-1: 45 93% 47%;
-  --chart-2: 45 60% 35%;
-  --chart-3: 45 30% 25%;
-  --chart-4: 30 70% 40%;
-  --chart-5: 15 80% 45%;
+  --chart-1: 43 90% 50%;
+  --chart-2: 43 70% 38%;
+  --chart-3: 43 50% 26%;
+  --chart-4: 43 40% 20%;
+  --chart-5: 43 30% 15%;
 
-  --shadow-2xs: 0 1px 2px hsl(45 93% 47% / 0.08);
-  --shadow-xs: 0 2px 4px hsl(45 93% 47% / 0.10);
-  --shadow-sm: 0 2px 8px hsl(45 93% 47% / 0.12);
-  --shadow: 0 4px 16px hsl(45 93% 47% / 0.14);
-  --shadow-md: 0 8px 24px hsl(45 93% 47% / 0.16);
-  --shadow-lg: 0 12px 40px hsl(45 93% 47% / 0.18);
-  --shadow-xl: 0 20px 60px hsl(45 93% 47% / 0.20);
-  --shadow-2xl: 0 32px 80px hsl(45 93% 47% / 0.24);
+  --shadow-2xs: 0 1px 2px hsl(43 90% 50% / 0.08);
+  --shadow-xs:  0 2px 4px hsl(43 90% 50% / 0.12);
+  --shadow-sm:  0 2px 8px hsl(43 90% 50% / 0.16);
+  --shadow:     0 4px 16px hsl(43 90% 50% / 0.18);
+  --shadow-md:  0 8px 24px hsl(43 90% 50% / 0.20);
+  --shadow-lg:  0 12px 40px hsl(43 90% 50% / 0.22);
+  --shadow-xl:  0 20px 60px hsl(43 90% 50% / 0.26);
+  --shadow-2xl: 0 32px 80px hsl(43 90% 50% / 0.30);
 }
 
 @layer base {
@@ -207,9 +210,17 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     letter-spacing: 0.03em;
+    /* Charcoal texture: warm micro-noise grain + ember glows */
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 110%, rgba(180, 110, 0, 0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 15% 85%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 25% at 85% 75%, rgba(180, 80, 0, 0.06) 0%, transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: auto, auto, auto, 300px 300px;
   }
   :lang(ar) {
-    font-family: 'Noto Naskh Arabic', 'Cinzel', serif;
+    font-family: 'Noto Naskh Arabic', 'Amiri', serif;
     letter-spacing: 0;
   }
 }
@@ -258,23 +269,93 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
   .border.active-elevate:not(.no-active-interaction-elevate)::after { inset: -1px; }
 
-  /* Gold shimmer animation */
+  /* ── Gold shimmer — sweeping light across text ── */
   @keyframes gold-shimmer {
-    0% { background-position: -200% center; }
+    0%   { background-position: -200% center; }
     100% { background-position: 200% center; }
   }
   .gold-shimmer {
-    background: linear-gradient(90deg, hsl(45 93% 47%) 0%, hsl(45 100% 70%) 50%, hsl(45 93% 47%) 100%);
+    background: linear-gradient(
+      90deg,
+      hsl(43 70% 38%) 0%,
+      hsl(43 100% 68%) 40%,
+      hsl(43 90% 50%) 60%,
+      hsl(43 70% 38%) 100%
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gold-shimmer 3s linear infinite;
+    animation: gold-shimmer 4s linear infinite;
   }
 
-  /* Divider line */
+  /* ── Button gold shimmer on hover ── */
+  @keyframes btn-shimmer {
+    0%   { background-position: -300% center; }
+    100% { background-position: 300% center; }
+  }
+  .btn-gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold-shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba(255, 230, 120, 0.22) 50%,
+      transparent 70%
+    );
+    background-size: 300% 100%;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    animation: btn-shimmer 1.6s linear infinite;
+  }
+  .btn-gold-shimmer:hover::after {
+    opacity: 1;
+  }
+
+  /* ── Ember spark flicker ── */
+  @keyframes ember-flicker {
+    0%, 100% { opacity: 0.5; transform: scaleY(1);   }
+    50%       { opacity: 0.9; transform: scaleY(1.06); }
+  }
+  .ember-flicker {
+    animation: ember-flicker 2.4s ease-in-out infinite;
+  }
+
+  /* ── Divider line ── */
   .gold-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(45 93% 47%), transparent);
+    background: linear-gradient(90deg, transparent, hsl(43 90% 50%), transparent);
+  }
+
+  /* ── Arabic calligraphic headline ── */
+  .font-calligraphic {
+    font-family: 'Scheherazade New', 'Amiri', 'Noto Naskh Arabic', serif;
+    font-weight: 700;
+  }
+  :not(:lang(ar)) .font-calligraphic {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+  }
+
+  /* ── Polished gold border glow ── */
+  .gold-border-glow {
+    box-shadow:
+      0 0 0 1px hsl(43 90% 50% / 0.6),
+      0 0 12px hsl(43 90% 50% / 0.15),
+      inset 0 1px 0 hsl(43 100% 75% / 0.10);
+  }
+
+  /* ── Card rim light ── */
+  .card-rim {
+    box-shadow:
+      0 1px 0 hsl(43 100% 70% / 0.08) inset,
+      0 -1px 0 hsl(0 0% 0% / 0.4) inset;
   }
 }

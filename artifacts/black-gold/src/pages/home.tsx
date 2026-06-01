@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="mb-6"
           >
-            <span className="inline-block text-[10px] tracking-[0.4em] uppercase text-primary border border-primary/40 px-6 py-2 backdrop-blur-sm bg-black/20">
+            <span className="inline-block text-[10px] tracking-[0.4em] uppercase text-primary gold-border-glow px-6 py-2 backdrop-blur-sm bg-black/30">
               {t("فحم شيشة فاخر — جودة لا تضاهى", "Premium Hookah Charcoal — Unrivaled Quality")}
             </span>
           </motion.div>
@@ -53,7 +53,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-widest mb-4 leading-none"
+            className="font-calligraphic text-6xl md:text-8xl lg:text-9xl mb-4 leading-none"
           >
             <span className="gold-shimmer">
               {t("الذهب", "BLACK")}
@@ -68,14 +68,15 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="gold-divider w-32 mx-auto my-8"
+            className="gold-divider w-32 mx-auto my-8 ember-flicker"
           />
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-muted-foreground text-lg md:text-xl tracking-widest max-w-xl mx-auto mb-12"
+            className="text-foreground/70 text-lg md:text-xl tracking-widest max-w-xl mx-auto mb-12"
+            style={{ fontFamily: "'Noto Naskh Arabic', 'Amiri', serif" }}
           >
             {t(
               "اشتعل بجلسة لا تُنسى. جودة لا مثيل لها، احتراق طويل، وبدون روائح",
@@ -91,7 +92,7 @@ export default function Home() {
           >
             <Link
               href="/products"
-              className="inline-flex h-14 items-center justify-center gap-3 bg-primary text-primary-foreground px-10 text-sm tracking-widest uppercase hover:bg-primary/90 transition-colors"
+              className="btn-gold-shimmer inline-flex h-14 items-center justify-center gap-3 bg-primary text-primary-foreground px-10 text-sm tracking-widest uppercase transition-all duration-300 hover:brightness-110 hover:shadow-[0_0_24px_hsl(43_90%_50%/0.45)]"
               data-testid="link-shop-now"
             >
               {t("اطلب الآن", "Order Now")}
@@ -99,7 +100,7 @@ export default function Home() {
             </Link>
             <Link
               href="/wholesale"
-              className="inline-flex h-14 items-center justify-center gap-3 border border-primary/50 text-foreground px-10 text-sm tracking-widest uppercase hover:bg-primary/10 transition-colors backdrop-blur-sm"
+              className="btn-gold-shimmer inline-flex h-14 items-center justify-center gap-3 border border-primary/70 text-primary px-10 text-sm tracking-widest uppercase hover:bg-primary/12 hover:border-primary transition-all duration-300 backdrop-blur-sm hover:shadow-[0_0_18px_hsl(43_90%_50%/0.25)]"
               data-testid="link-wholesale"
             >
               {t("طلبات الجملة", "Wholesale")}

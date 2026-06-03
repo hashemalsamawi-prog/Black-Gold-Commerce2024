@@ -55,15 +55,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <p className="text-muted-foreground text-xs tracking-widest">
               © {new Date().getFullYear()} {t("الذهب الأسود. جميع الحقوق محفوظة.", "BLACK GOLD. ALL RIGHTS RESERVED.")}
             </p>
-            <a
-              href="https://wa.me/+966500000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors"
-              data-testid="link-whatsapp-footer"
-            >
-              {t("تواصل معنا عبر واتساب", "Contact us on WhatsApp")}
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="mailto:blackgold.ye@gmail.com"
+                className="text-xs tracking-widest text-muted-foreground hover:text-primary transition-colors"
+                data-testid="link-email-footer"
+              >
+                blackgold.ye@gmail.com
+              </a>
+              <span className="hidden sm:block text-border">|</span>
+              <a
+                href="https://wa.me/+966500000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors"
+                data-testid="link-whatsapp-footer"
+              >
+                {t("تواصل معنا عبر واتساب", "Contact us on WhatsApp")}
+              </a>
+            </div>
           </div>
         </div>
       </footer>

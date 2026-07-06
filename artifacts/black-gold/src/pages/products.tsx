@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
+import { siteConfig } from "@/data/config";
 import { Search, SlidersHorizontal, X, ShoppingBag, Eye } from "lucide-react";
 import {
   useListProducts,
@@ -162,7 +163,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
           <div className="flex items-center justify-between mt-2 px-2">
             <span className="text-primary font-bold text-xl tracking-tight">
               {product.basePrice.toFixed(0)}
-              <span className="text-sm font-normal mr-1 text-primary/70"> {t("ر.س", "SAR")}</span>
+              <span className="text-sm font-normal mr-1 text-primary/70"> {t(siteConfig.delivery.currencyAr, siteConfig.delivery.currencyEn)}</span>
             </span>
             {product.rating && (
               <div className="flex items-center gap-1">

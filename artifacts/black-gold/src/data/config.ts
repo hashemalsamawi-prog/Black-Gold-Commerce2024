@@ -1,7 +1,6 @@
 /**
  * CENTRALIZED SITE CONFIGURATION
- * Edit this file to update all content, prices, links, and account numbers
- * without touching any other frontend code.
+ * Edit this file to update all content, prices, links, and account numbers.
  */
 
 export const siteConfig = {
@@ -13,13 +12,19 @@ export const siteConfig = {
     descriptionAr: "فحم شيشة فاخر بجودة لا مثيل لها. اشتعال سريع، احتراق طويل، وبدون روائح.",
     descriptionEn: "Premium hookah charcoal of unrivaled quality. Quick ignition, long burn, odorless.",
     email: "blackgold.ye@gmail.com",
-    whatsappNumber: "966500000000",   // ← without + or spaces
-    whatsappDisplay: "+966 500 000 000",
+    whatsappNumber: "967700000000",    // B2C WhatsApp (← update for production)
+    whatsappDisplay: "+967 700 000 000",
+  },
+
+  b2b: {
+    whatsappNumber: "967700000001",    // B2B WhatsApp (← update for production)
+    codDisableThreshold: 100000,       // Disable Cash on Delivery above 100,000 YER
+    wholesaleMoq: 12,                  // Minimum order quantity for wholesale products
   },
 
   social: {
-    instagram: "https://instagram.com/blackgold",   // ← update with real handle
-    facebook: "https://facebook.com/blackgold",      // ← update with real page
+    instagram: "https://instagram.com/blackgold",
+    facebook: "https://facebook.com/blackgold",
   },
 
   seo: {
@@ -31,51 +36,43 @@ export const siteConfig = {
   },
 
   delivery: {
-    freeThreshold: 500,
-    fee: 30,
-    currencyAr: "ر.س",
-    currencyEn: "SAR",
+    freeThreshold: 100000,   // Free shipping above 100,000 YER
+    fee: 500,                // Default fee when city not in citiesShipping list
+    currencyAr: "ر.ي",
+    currencyEn: "YER",
   },
 
-  /**
-   * E-WALLET PAYMENT METHODS
-   * Add / remove entries here to control which wallets appear at checkout.
-   * accountNumber and accountName are shown to the customer when they select this method.
-   */
+  citiesShipping: [
+    { id: "sanaa",     ar: "صنعاء",    en: "Sana'a",    fee: 500  },
+    { id: "aden",      ar: "عدن",      en: "Aden",      fee: 1000 },
+    { id: "taiz",      ar: "تعز",      en: "Taiz",      fee: 800  },
+    { id: "hodeidah",  ar: "الحديدة",  en: "Hodeidah",  fee: 800  },
+    { id: "ibb",       ar: "إب",       en: "Ibb",       fee: 700  },
+    { id: "mukalla",   ar: "المكلا",   en: "Mukalla",   fee: 1500 },
+    { id: "hadramout", ar: "حضرموت",   en: "Hadramout", fee: 1500 },
+    { id: "marib",     ar: "مأرب",     en: "Marib",     fee: 1200 },
+    { id: "dhamar",    ar: "ذمار",     en: "Dhamar",    fee: 600  },
+    { id: "amran",     ar: "عمران",    en: "Amran",     fee: 600  },
+    { id: "hajjah",    ar: "حجة",      en: "Hajjah",    fee: 900  },
+    { id: "saadah",    ar: "صعدة",     en: "Saadah",    fee: 1000 },
+    { id: "mahwit",    ar: "المحويت",  en: "Mahwit",    fee: 700  },
+    { id: "bayda",     ar: "البيضاء",  en: "Al-Bayda",  fee: 900  },
+  ],
+
   ewallets: [
-    {
-      id: "flousak",
-      nameAr: "فلوسك",
-      nameEn: "Flousak",
-      accountNumber: "XXXXXXXX",    // ← replace with real number
-      accountNameAr: "الذهب الأسود",
-      accountNameEn: "Black Gold",
-    },
-    {
-      id: "jeeb",
-      nameAr: "جيب",
-      nameEn: "Jeeb",
-      accountNumber: "XXXXXXXX",    // ← replace with real number
-      accountNameAr: "الذهب الأسود",
-      accountNameEn: "Black Gold",
-    },
-    {
-      id: "jawali",
-      nameAr: "جوالي",
-      nameEn: "Jawali",
-      accountNumber: "XXXXXXXX",    // ← replace with real number
-      accountNameAr: "الذهب الأسود",
-      accountNameEn: "Black Gold",
-    },
-    {
-      id: "mobile_money",
-      nameAr: "موبايل موني",
-      nameEn: "Mobile Money",
-      accountNumber: "XXXXXXXX",    // ← replace with real number
-      accountNameAr: "الذهب الأسود",
-      accountNameEn: "Black Gold",
-    },
+    { id: "flousak",      nameAr: "فلوسك",       nameEn: "Flousak",      accountNumber: "XXXXXXXX", accountNameAr: "الذهب الأسود", accountNameEn: "Black Gold" },
+    { id: "jeeb",         nameAr: "جيب",          nameEn: "Jeeb",         accountNumber: "XXXXXXXX", accountNameAr: "الذهب الأسود", accountNameEn: "Black Gold" },
+    { id: "jawali",       nameAr: "جوالي",        nameEn: "Jawali",       accountNumber: "XXXXXXXX", accountNameAr: "الذهب الأسود", accountNameEn: "Black Gold" },
+    { id: "mobile_money", nameAr: "موبايل موني",  nameEn: "Mobile Money", accountNumber: "XXXXXXXX", accountNameAr: "الذهب الأسود", accountNameEn: "Black Gold" },
   ],
 } as const;
 
 export type EwalletId = typeof siteConfig.ewallets[number]["id"];
+export type CityId = typeof siteConfig.citiesShipping[number]["id"];
+
+export interface SavedAddress {
+  id: string;
+  label: string;
+  city: string;
+  address: string;
+}

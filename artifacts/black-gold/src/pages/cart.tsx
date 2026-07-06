@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Plus, X, ShoppingBag, ArrowRight, Flame } from "lucide-react";
+import { siteConfig } from "@/data/config";
 import {
   useGetCart,
   getGetCartQueryKey,
@@ -162,7 +163,7 @@ export default function Cart() {
                           </button>
                         </div>
                         <span className="text-primary font-bold" data-testid={`text-item-price-${item.id}`}>
-                          {(item.price * item.quantity).toFixed(0)} {t("ر.س", "SAR")}
+                          {Math.round(item.price * item.quantity).toLocaleString()} {t(siteConfig.delivery.currencyAr, siteConfig.delivery.currencyEn)}
                         </span>
                       </div>
                     </div>

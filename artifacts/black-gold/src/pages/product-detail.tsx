@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRoute, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
+import { siteConfig } from "@/data/config";
 import { ShoppingBag, Minus, Plus, ChevronLeft, ChevronRight, Flame, Bell, BellRing, CheckCircle2, Zap } from "lucide-react";
 import {
   useGetProduct,
@@ -244,7 +245,7 @@ export default function ProductDetail() {
                       data-testid={`button-variant-${variant.id}`}
                     >
                       <span className="block">{t(variant.nameAr, variant.nameEn)}</span>
-                      <span className="block text-xs mt-0.5 text-primary">{variant.price.toFixed(0)} {t("ر.س", "SAR")}</span>
+                      <span className="block text-xs mt-0.5 text-primary">{Math.round(variant.price).toLocaleString()} {t(siteConfig.delivery.currencyAr, siteConfig.delivery.currencyEn)}</span>
                     </button>
                   ))}
                 </div>

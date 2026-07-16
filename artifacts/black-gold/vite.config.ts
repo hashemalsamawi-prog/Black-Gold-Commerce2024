@@ -52,7 +52,9 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    // Changed output directory from "dist/public" to "dist" so the project's
+    // expected entrypoint can be found at artifacts/black-gold/dist
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
   server: {

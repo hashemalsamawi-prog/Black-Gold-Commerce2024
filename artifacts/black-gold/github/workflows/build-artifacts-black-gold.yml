@@ -1,0 +1,48 @@
+name: Build artifacts/black-gold and push dist
+on:
+  push:
+    paths:
+      - 'artifacts/black-gold/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          fi
+
+      - name: Install and build artifacts/black-gold
+        working-directory: artifacts/black-gold
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit and push dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add artifacts/black-gold/dist || true
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "ci: build artifacts/black-gold dist [skip ci]"
+          git push origin HEAD:$(git rev-parse --abbrev-ref HEAD)

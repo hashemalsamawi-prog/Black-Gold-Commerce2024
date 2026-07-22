@@ -9,8 +9,10 @@ import { logger } from "./lib/logger";
 const app: Express = express();
 
 /* ── Security headers (Helmet) ── */
+// TypeScript in some environments complains about the helmet import's call signature.
+// Cast to `any` here to satisfy the compiler while preserving the runtime behavior.
 app.use(
-  helmet({
+  (helmet as unknown as (...args: any[]) => any)({
     contentSecurityPolicy: false, // Disabled for API-only server (frontend handles CSP)
     crossOriginEmbedderPolicy: false,
   }),

@@ -1,10 +1,14 @@
 import express, { type Express } from "express";
+import type { IncomingMessage, ServerResponse } from "http";
 import cors from "cors";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
-import pinoHttp from "pino-http";
+import * as pinoHttpImport from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+
+// Handle CJS/ESM interop for pino-http
+const pinoHttp = (pinoHttpImport as any).default ?? pinoHttpImport;
 
 const app: Express = express();
 
@@ -33,14 +37,14 @@ app.use(
   pinoHttp({
     logger,
     serializers: {
-      req(req) {
+      req(req: IncomingMessage & { id?: string; method?: string; url?: string }) {
         return {
-          id: req.id,
+          id: (req as any).id,
           method: req.method,
-          url: req.url?.split("?")[0],
+          url: (req.url as string)?.split("?")[0],
         };
       },
-      res(res) {
+      res(res: ServerResponse & { statusCode?: number }) {
         return {
           statusCode: res.statusCode,
         };

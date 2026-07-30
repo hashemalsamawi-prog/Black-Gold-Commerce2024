@@ -1,11 +1,11 @@
 import { Router, type IRouter } from "express";
-import healthRouter from "./health";
-import categoriesRouter from "./categories";
-import productsRouter from "./products";
-import cartRouter from "./cart";
-import ordersRouter from "./orders";
-import customersRouter from "./customers";
-import wholesaleRouter from "./wholesale";
+import healthRouter from "./health.js";
+import categoriesRouter from "./categories.js";
+import productsRouter from "./products.js";
+import cartRouter from "./cart.js";
+import ordersRouter from "./orders.js";
+import customersRouter from "./customers.js";
+import wholesaleRouter from "./wholesale.js";
 
 const router: IRouter = Router();
 

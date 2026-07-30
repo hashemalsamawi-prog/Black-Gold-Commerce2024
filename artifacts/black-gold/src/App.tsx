@@ -16,6 +16,7 @@ import AccountLogin from "@/pages/account-login";
 import AccountRegister from "@/pages/account-register";
 import AccountOrders from "@/pages/account-orders";
 import AccountOrderDetail from "@/pages/account-order-detail";
+import Tracking from "@/pages/tracking";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
@@ -42,6 +43,7 @@ function Router() {
         <Route path="/account/register" component={AccountRegister} />
         <Route path="/account/orders" component={AccountOrders} />
         <Route path="/account/orders/:id" component={AccountOrderDetail} />
+        <Route path="/tracking" component={Tracking} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

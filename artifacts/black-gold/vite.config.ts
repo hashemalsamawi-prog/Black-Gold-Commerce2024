@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
 
 const isBuild = process.env.NODE_ENV === "production" || process.argv.includes("build");
 
@@ -23,22 +25,15 @@ if (!isBuild) {
 
 export default defineConfig({
   base: basePath,
-  plugins: [
-    react(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer({
-              root: path.resolve(import.meta.dirname, ".."),
-            }),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
-        ]
-      : []),
-  ].filter(Boolean),
+  css: {
+    postcss: {
+      plugins: [
+        tailwindcss({ config: path.resolve(import.meta.dirname, "tailwind.config.cjs") }),
+        autoprefixer(),
+      ],
+    },
+  },
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
@@ -48,8 +43,6 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    // Changed output directory from "dist/public" to "dist" so the project's
-    // expected entrypoint can be found at artifacts/black-gold/dist
     outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },

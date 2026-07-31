@@ -4,8 +4,8 @@ import cors from "cors";
 import helmet from "helmet";
 import { rateLimit } from "express-rate-limit";
 import * as pinoHttpImport from "pino-http";
-import router from "./routes";
-import { logger } from "./lib/logger";
+import router from "./routes/index.js";
+import { logger } from "./lib/logger.js";
 
 // Handle CJS/ESM interop for pino-http
 const pinoHttp = (pinoHttpImport as any).default ?? pinoHttpImport;

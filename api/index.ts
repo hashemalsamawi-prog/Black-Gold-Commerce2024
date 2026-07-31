@@ -2,12 +2,12 @@
  * Vercel Serverless Function — API entry point
  *
  * @vercel/node detects this file, compiles it with esbuild, and wraps the
- * exported Express app as a serverless handler. All requests to /api/* on
- * the Vercel deployment are routed here by vercel.json.
+ * exported Express app as a serverless handler. All requests matching
+ * /api/(.*) in vercel.json are routed here.
  *
- * Required environment variables (set in Vercel project settings):
- *   DATABASE_URL  — PostgreSQL connection string (Neon, Supabase, etc.)
- *   SESSION_SECRET — Secret used for signed cookies / sessions
+ * Required environment variables (set in Vercel project → Settings → Env Vars):
+ *   DATABASE_URL   — PostgreSQL connection string (Neon, Supabase, Vercel Postgres…)
+ *   SESSION_SECRET — Secret for signed cookies / sessions
  */
 import app from "../artifacts/api-server/src/app";
 

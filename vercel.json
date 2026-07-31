@@ -1,4 +1,6 @@
 {
+  "framework": null,
+  "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "pnpm --filter @workspace/black-gold run build",
   "outputDirectory": "artifacts/black-gold/dist",
   "rewrites": [

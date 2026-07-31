@@ -1,14 +1,22 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
-const isBuild = process.env.NODE_ENV === "production" || process.argv.includes("build");
+// import.meta.dirname was only added in Node 20.11.0.
+// Vercel's Node 20 runtime is often an older patch — use the
+// fileURLToPath pattern instead so builds work on any ESM-capable Node.
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const isBuild =
+  process.env.NODE_ENV === "production" || process.argv.includes("build");
 
 const rawPort = process.env.PORT;
 const port = rawPort ? Number(rawPort) : 5173;
 
+// BASE_PATH is a Replit-specific env var; on Vercel it is simply absent → "/"
 const basePath = process.env.BASE_PATH ?? "/";
 
 if (!isBuild) {
@@ -28,7 +36,7 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: [
-        tailwindcss({ config: path.resolve(import.meta.dirname, "tailwind.config.cjs") }),
+        tailwindcss({ config: path.resolve(__dirname, "tailwind.config.cjs") }),
         autoprefixer(),
       ],
     },
@@ -36,14 +44,14 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
-      "@assets": path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
+      "@": path.resolve(__dirname, "src"),
+      "@assets": path.resolve(__dirname, "..", "..", "attached_assets"),
     },
     dedupe: ["react", "react-dom"],
   },
-  root: path.resolve(import.meta.dirname),
+  root: path.resolve(__dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
   },
   server: {
@@ -54,8 +62,8 @@ export default defineConfig({
     fs: {
       strict: true,
       allow: [
-        path.resolve(import.meta.dirname),
-        path.resolve(import.meta.dirname, "..", "..", "attached_assets"),
+        path.resolve(__dirname),
+        path.resolve(__dirname, "..", "..", "attached_assets"),
       ],
     },
   },

@@ -1,4 +1,5 @@
-import express, { type Express } from "express";
+import express from "express";
+import type { Express } from "express";
 import type { IncomingMessage, ServerResponse } from "http";
 import cors from "cors";
 import helmet from "helmet";

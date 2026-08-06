@@ -29,7 +29,7 @@ const globalLimiter = rateLimit({
   standardHeaders: "draft-7",
   legacyHeaders: false,
   message: { error: "Too many requests, please slow down." },
-  skip: (req) => req.method === "GET", // Only rate-limit writes globally
+  skip: (req: any) => req.method === "GET", // Only rate-limit writes globally
 });
 app.use(globalLimiter);
 

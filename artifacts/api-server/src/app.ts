@@ -1,5 +1,4 @@
 import express from "express";
-import type { Express } from "express";
 import type { IncomingMessage, ServerResponse } from "http";
 import cors from "cors";
 import helmet from "helmet";
@@ -11,7 +10,7 @@ import { logger } from "./lib/logger.js";
 // Handle CJS/ESM interop for pino-http
 const pinoHttp = (pinoHttpImport as any).default ?? pinoHttpImport;
 
-const app: Express = express();
+const app = express();
 
 /* ── Security headers (Helmet) ── */
 // TypeScript in some environments complains about the helmet import's call signature.

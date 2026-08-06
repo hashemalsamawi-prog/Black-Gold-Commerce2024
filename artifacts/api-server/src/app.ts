@@ -37,8 +37,7 @@ app.use(
   pinoHttp({
     logger,
     serializers: {
-      req(req: IncomingMessage & { id?: string; method?: string; url?: string }) {
-        return {
+      req(req: any) {
           id: (req as any).id,
           method: req.method,
           url: (req.url as string)?.split("?")[0],

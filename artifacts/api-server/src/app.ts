@@ -38,11 +38,12 @@ app.use(
     logger,
     serializers: {
       req(req: any) {
-          id: (req as any).id,
-          method: req.method,
-          url: (req.url as string)?.split("?")[0],
-        };
-      },
+  return {
+    id: req.id,
+    method: req.method,
+    url: (req.url as string)?.split("?")[0],
+  };
+},
       res(res: ServerResponse & { statusCode?: number }) {
         return {
           statusCode: res.statusCode,

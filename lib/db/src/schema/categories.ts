@@ -1,17 +1,16 @@
-import { pgTable, text, serial, timestamp, integer } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
-import { z } from "zod/v4";
+import { Router } from "express";
+import { db, categoriesTable } from "@workspace/db";
+import { ListCategoriesResponse } from "@workspace/api-zod";
 
-export const categoriesTable = pgTable("categories", {
-  id: serial("id").primaryKey(),
-  nameAr: text("name_ar").notNull(),
-  nameEn: text("name_en").notNull(),
-  slug: text("slug").notNull().unique(),
-  imageUrl: text("image_url"),
-  productCount: integer("product_count").notNull().default(0),
-  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+const router = Router();
+
+router.get("/categories", async (_req: any, res: any): Promise<void> => {
+  const rows = await db
+    .select()
+    .from(categoriesTable)
+    .orderBy(categoriesTable.nameEn);
+
+  res.json(ListCategoriesResponse.parse(rows));
 });
 
-export const insertCategorySchema = createInsertSchema(categoriesTable).omit({ id: true, createdAt: true });
-export type InsertCategory = z.infer<typeof insertCategorySchema>;
-export type Category = typeof categoriesTable.$inferSelect;
+export default router;
